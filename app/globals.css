@@ -1,0 +1,116 @@
+:root {
+  --font-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Public Sans', system-ui, sans-serif;
+  --font-sig: 'Great Vibes', cursive;
+  --navy: #1E2A5C;
+  --navy-deep: #131C42;
+  --gold: #E8A33D;
+  --red: #C8352E;
+  --paper: #F6F4EE;
+  --ink: #22273A;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mpc-sig { font-family: var(--font-sig), cursive; color: #E8A33D; line-height: 1; }
+.mpc-display { font-family: var(--font-display), sans-serif; font-size: 44px; font-weight: 700; letter-spacing: 0.05em; line-height: 1; text-transform: uppercase; }
+@media (max-width: 640px) { .mpc-display { font-size: 32px; } }
+.mpc-h2 { font-family: var(--font-display), sans-serif; font-size: 27px; font-weight: 700; color: var(--navy); letter-spacing: 0.05em; text-transform: uppercase; margin: 0; }
+.mpc-h3 { font-family: var(--font-display), sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 8px; }
+.mpc-condensed { font-family: var(--font-display), sans-serif; }
+.mpc-toggle { padding: 7px 16px; border-radius: 7px; font-weight: 600; font-size: 13px; cursor: pointer; font-family: var(--font-body), sans-serif; }
+.mpc-chip { border: 1.5px solid; border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: var(--font-body), sans-serif; transition: transform .08s; }
+.mpc-chip:hover { transform: translateY(-1px); }
+.mpc-nowchip { background: #FADFC9; color: #7A3A0E; border: 1.5px solid #E8762C; border-radius: 99px; padding: 4px 12px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.mpc-nowchip:hover { background: #E8762C; color: #fff; }
+.mpc-bar { transition: filter .1s, transform .1s; }
+.mpc-bar:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.mpc-rowlabel:hover { background: #EFEBDD !important; }
+.mpc-card { transition: box-shadow .12s, transform .12s; }
+.mpc-card:hover { box-shadow: 0 8px 22px rgba(19,28,66,0.14); transform: translateY(-2px); }
+.mpc-primary { background: var(--navy); color: #fff; border: none; border-radius: 8px; padding: 9px 18px; font-weight: 700; font-size: 13.5px; cursor: pointer; font-family: var(--font-body), sans-serif; }
+.mpc-primary:hover { background: var(--navy-deep); }
+.mpc-primary:disabled { opacity: 0.5; cursor: default; }
+.mpc-ghost { background: #fff; color: var(--navy); border: 1.5px solid #C9C5B5; border-radius: 8px; padding: 8px 15px; font-weight: 600; font-size: 13px; cursor: pointer; font-family: var(--font-body), sans-serif; }
+.mpc-ghost:disabled { opacity: 0.4; cursor: default; }
+.mpc-editbtn { background: var(--navy-deep); color: var(--gold); border: 1px solid var(--gold); border-radius: 6px; padding: 3px 10px; font-size: 11px; font-weight: 700; cursor: pointer; z-index: 5; }
+.mpc-darkinput { padding: 7px 10px; border-radius: 6px; border: 1px solid #3A4370; background: #1B2450; color: #fff; font-size: 13px; font-family: var(--font-body), sans-serif; }
+.mpc-adminbtn { background: transparent; color: #C9D0E8; border: 1px solid #3A4370; border-radius: 7px; padding: 6px 12px; font-size: 12px; font-weight: 600; cursor: pointer; }
+.mpc-adminbtn:hover { border-color: var(--gold); color: var(--gold); }
+.mpc-adminbtn:disabled { opacity: 0.4; cursor: default; }
+.mpc-stafflink { background: none; border: 1px solid #3A4370; color: #8E97BC; border-radius: 7px; padding: 6px 14px; font-size: 12px; cursor: pointer; }
+.mpc-stafflink:hover { color: var(--gold); border-color: var(--gold); }
+.mpc-x { background: none; border: none; color: rgba(255,255,255,0.8); font-size: 18px; cursor: pointer; line-height: 1; }
+.mpc-x:hover { color: #fff; }
+.mpc-field { display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: 0.03em; }
+.mpc-field input, .mpc-field select, .mpc-field textarea { font-family: var(--font-body), sans-serif; font-size: 13.5px; font-weight: 400; padding: 8px 10px; border: 1.5px solid #C9C5B5; border-radius: 7px; background: #fff; color: var(--ink); outline: none; }
+.mpc-field input:focus, .mpc-field select:focus, .mpc-field textarea:focus { border-color: var(--navy); }
+.mpc-toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--navy-deep); color: #fff; border-left: 4px solid var(--gold); border-radius: 8px; padding: 11px 20px; font-size: 13.5px; font-weight: 600; z-index: 100; box-shadow: 0 8px 30px rgba(0,0,0,0.35); animation: mpcUp .25s ease; font-family: var(--font-body), sans-serif; max-width: 92vw; }
+@keyframes mpcUp { from { opacity: 0; transform: translate(-50%, 12px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.mpc-scroll { scrollbar-width: thin; scrollbar-color: var(--navy) #E8E5DA; }
+.mpc-scroll::-webkit-scrollbar { height: 10px; }
+.mpc-scroll::-webkit-scrollbar-track { background: #E8E5DA; }
+.mpc-scroll::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 99px; }
+.mpc-scrollhint { text-align: center; font-size: 11px; color: #8A8674; padding: 6px 0 8px; font-weight: 500; letter-spacing: 0.04em; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* two-column form rows collapse on phones */
+.mpc-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mpc-grid21 { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+@media (max-width: 520px) { .mpc-grid2, .mpc-grid21 { grid-template-columns: 1fr; } }
+
+/* never let long <select> options or inputs push a form wider than the phone
+   (checkboxes/radios excluded — they must stay their natural size) */
+.mpc-grid2 > *, .mpc-grid21 > * { min-width: 0; }
+.mpc-field input:not([type="checkbox"]):not([type="radio"]),
+.mpc-field select, .mpc-field textarea { width: 100%; max-width: 100%; }
+
+/* September survey banner — the seal is decorative, so it steps aside on
+   phones rather than eating a line of its own above the headline. */
+@media (max-width: 560px) {
+  .mpc-survey-seal { display: none; }
+  .mpc-survey-title { font-size: 25px !important; }
+}
+
+/* the survey, the video and the presentation — three equal boxes once there's
+   room, two when it's tight, stacked on a phone */
+.mpc-survey-cols { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: stretch; }
+@media (min-width: 620px) { .mpc-survey-cols { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 950px) { .mpc-survey-cols { grid-template-columns: 1fr 1fr 1fr; gap: 16px; } }
+.mpc-subcard {
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 10px; border-top-left-radius: 6px; border-top-right-radius: 6px;
+  padding: 12px 14px 14px; min-width: 0;
+  display: flex; flex-direction: column;
+}
+/* the survey is the actual ask, so it reads a step louder than the other two */
+.mpc-subcard-primary {
+  background: rgba(232,163,61,0.10);
+  border-color: rgba(232,163,61,0.55);
+}
+/* at two-across, the survey takes the full first row so it stays the headline */
+@media (min-width: 620px) and (max-width: 949px) {
+  .mpc-subcard-primary { grid-column: 1 / -1; }
+}
+
+/* the video card — a little life on hover so it reads as clickable */
+.mpc-playcard { transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.mpc-playcard:hover, .mpc-playcard:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--gold) !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.38);
+}
+.mpc-playbtn { transition: transform .18s ease, box-shadow .18s ease; }
+.mpc-playcard:hover .mpc-playbtn, .mpc-playcard:focus-visible .mpc-playbtn {
+  transform: translate(-50%, -50%) scale(1.09);
+  box-shadow: 0 8px 26px rgba(0,0,0,0.55);
+}
